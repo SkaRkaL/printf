@@ -20,7 +20,7 @@ int ft_printf(const char *format, ...)
             else if (format[i + 1] == 's')
                 len += ft_putstr(va_arg(list, char *));
             else if (format[i + 1] == 'p')
-                len += ft_putAddress(va_arg(list, unsigned long long));
+                len += ft_putAddress(va_arg(list, unsigned long int));
             else if ((format[i + 1] == 'd') || (format[i + 1] == 'i'))
                 len += ft_putnbr(va_arg(list, int));
             else if (format[i + 1] == 'u')
@@ -28,16 +28,16 @@ int ft_printf(const char *format, ...)
             else if (format[i + 1] == 'o')
                 len += ft_putnbr_base(va_arg(list, unsigned int), B8);
             else if (format[i + 1] == 'x')
-                len += ft_putnbr_base(va_arg(list, unsigned long long), B16L);
+                len += ft_putnbr_base(va_arg(list, unsigned int), B16L);
             else if (format[i + 1] == 'X')
-                len += ft_putnbr_base(va_arg(list, unsigned long long), B16U);
+                len += ft_putnbr_base(va_arg(list, unsigned int), B16U);
             else if (format[i + 1] == '%')
                 len += ft_putchar('%');
 			else if (format[i + 1] != 'c' || format[i + 1] != 'i' || format[i + 1] != 'd' || format[i + 1] != 's' || format[i + 1] != 'X' || format[i + 1] != 'x' || format[i + 1] != 'p' || format[i + 1] != 'o')
-				{
-                    len += ft_putchar(format[i]);
-                    len += ft_putchar(format[i + 1]);
-				}
+            {
+                len += ft_putchar(format[i]);
+                len += ft_putchar(format[i + 1]);
+            }
             i++;
         }
         else
@@ -50,6 +50,7 @@ int ft_printf(const char *format, ...)
 
 //----------------------------------------------------//
 //                 MAIN N__1   Done ✅
+//           Crazy test hhhhhh
 //----------------------------------------------------//
 
 // int main()
@@ -63,8 +64,7 @@ int ft_printf(const char *format, ...)
 //     char m = 'M';
 //     int x = 255;
 //     unsigned int max = 4294967295;
-
-// 	// Crazy test hhhhhh
+//
 // 	puts("---------------------------------------------------------");
 //     int our = ft_printf("Hello |%s| my name is |%s| \nIm |%dyo| and -%c- |%icm|\n i live in %%%%%% \n with Address |%p| & with this code |%x| and also |%X|\nu == |%u|\n\n%s\n\n", s, sa, age, m, tl, add, x, x, max, msg );
 //     printf("\nFull LEN Diyalna  =============>> %d\n\n", our);
@@ -72,16 +72,16 @@ int ft_printf(const char *format, ...)
 //     int pur =   printf("Hello |%s| my name is |%s| \nIm |%dyo| and -%c- |%icm|\n i live in %%%%%% \n with Address |%p| & with this code |%x| and also |%X|\nu == |%u|\n\n%s\n\n", s, sa, age, m, tl, add, x, x, max, msg );
 //     printf("\nFull LEN Diyalhom =============>> %d\n\n", pur);
 // 	puts("---------------------------------------------------------\n");
-
+//
 // 	                          // Soo All Good ✔
-
+//
 //     return (0);
 // }
 
-//----------------------------------------------------//
+//---------------------------------------------------------------------------//
 //                 MAIN N__2   I guss all Done ✅
-//             hada l main Li kayn f ALX  ban liya mazyen same results idk checki tantii 
-//----------------------------------------------------//
+//       hada l main Li kayn f ALX  ban liya mazyen same results idk checki tantii 
+//---------------------------------------------------------------------------//
 
 // int main()
 // {
@@ -89,7 +89,7 @@ int ft_printf(const char *format, ...)
 //     int len2;
 //     unsigned int ui;
 //     void *addr;
-
+//
 //     len = ft_printf("Let's try to printf a simple sentence.\n");
 //     len2 = printf("Let's try to printf a simple sentence.\n");
 //     ui = (unsigned int)INT_MAX + 1024;

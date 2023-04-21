@@ -2,50 +2,50 @@
 
 int ft_printf(const char *format, ...)
 {
-    int		len;
-    int		i;
-    va_list	list;
-    
-    i = 0;
-    len = 0;
-    va_start(list, format);
-    while (format[i])
+	int		len;
+	int		i;
+	va_list	list;
+
+	i = 0;
+	len = 0;
+	va_start(list, format);
+	while (format[i])
     {
         if (format[i] == '%')
         {
-            if (format[i + 1] == '\0')
-              break ;
-            else if (format[i + 1] == 'c')
-                len += ft_putchar(va_arg(list, int));
-            else if (format[i + 1] == 's')
-                len += ft_putstr(va_arg(list, char *));
-            else if (format[i + 1] == 'p')
-                len += ft_putAddress(va_arg(list, unsigned long int));
-            else if ((format[i + 1] == 'd') || (format[i + 1] == 'i'))
-                len += ft_putnbr(va_arg(list, int));
-            else if (format[i + 1] == 'u')
-                len += ft_putnbr_unsigned(va_arg(list, unsigned int));
-            else if (format[i + 1] == 'o')
-                len += ft_putnbr_base(va_arg(list, unsigned int), B8);
-            else if (format[i + 1] == 'x')
-                len += ft_putnbr_base(va_arg(list, unsigned int), B16L);
-            else if (format[i + 1] == 'X')
-                len += ft_putnbr_base(va_arg(list, unsigned int), B16U);
-            else if (format[i + 1] == '%')
-                len += ft_putchar('%');
+			if (format[i + 1] == '\0')
+				break ;
+			else if (format[i + 1] == 'c')
+				len += ft_putchar(va_arg(list, int));
+			else if (format[i + 1] == 's')
+				len += ft_putstr(va_arg(list, char *));
+			else if (format[i + 1] == 'p')
+				len += ft_putAddress(va_arg(list, unsigned long int));
+			else if ((format[i + 1] == 'd') || (format[i + 1] == 'i'))
+				len += ft_putnbr(va_arg(list, int));
+			else if (format[i + 1] == 'u')
+				len += ft_putnbr_unsigned(va_arg(list, unsigned int));
+			else if (format[i + 1] == 'o')
+				len += ft_putnbr_base(va_arg(list, unsigned int), B8);
+			else if (format[i + 1] == 'x')
+				len += ft_putnbr_base(va_arg(list, unsigned int), B16L);
+			else if (format[i + 1] == 'X')
+				len += ft_putnbr_base(va_arg(list, unsigned int), B16U);
+			else if (format[i + 1] == '%')
+				len += ft_putchar('%');
 			else if (format[i + 1] != 'c' || format[i + 1] != 'i' || format[i + 1] != 'd' || format[i + 1] != 's' || format[i + 1] != 'X' || format[i + 1] != 'x' || format[i + 1] != 'p' || format[i + 1] != 'o')
-            {
-                len += ft_putchar(format[i]);
-                len += ft_putchar(format[i + 1]);
-            }
-            i++;
-        }
-        else
-            len += ft_putchar(format[i]);
-        i++;
-    }
-    va_end(list);
-    return (len);
+			{
+				len += ft_putchar(format[i]);
+				len += ft_putchar(format[i + 1]);
+			}
+			i++;
+		}
+		else
+			len += ft_putchar(format[i]);
+		i++;
+	}
+	va_end(list);
+	return (len);
 }
 
 //----------------------------------------------------//

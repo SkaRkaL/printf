@@ -1,6 +1,6 @@
 #include "main.h"
 
-int ft_strlen(char *s)
+int _strlen(char *s)
 {
 	int i = 0;
 	while (s[i] != '\0')
@@ -8,14 +8,14 @@ int ft_strlen(char *s)
 	return (i);
 }
 
-int	prints_rot13(char *str) // Task 14
+int	_prints_rot13(char *str) // Task 14
 {
 	int count = 0;
 	int i = 0;
 	char *tmp;
 	if(str == NULL)
 		return (0);
-	tmp = malloc(ft_strlen(str) + 1);
+	tmp = malloc(_strlen(str) + 1);
 	if(tmp == NULL)
 		return (0);
 	while (str[i])
@@ -39,7 +39,7 @@ int	prints_rot13(char *str) // Task 14
 }
 
 
-int	ft_strrev(char *s) // Task 13
+int	_strrev(char *s) // Task 13
 {
 	int	i;
 	int	count = 0;
@@ -49,7 +49,7 @@ int	ft_strrev(char *s) // Task 13
 	if(s == NULL)
 		return(0); 
 	i = 0;
-	len = ft_strlen(s) - 1;
+	len = _strlen(s) - 1;
 	tmp = malloc(len + 1);
 	if(!tmp)
 		return(0); 
@@ -59,7 +59,7 @@ int	ft_strrev(char *s) // Task 13
 		i++;
 		len--;
 	}
-	count += ft_putstr(tmp);
+	count += _putstr(tmp);
 	free(tmp);
 	return (count);
 }

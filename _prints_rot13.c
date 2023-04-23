@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * _strlen - length of string
+ * @s: string
+ * Return: int
+ */
 int _strlen(char *s)
 {
 	int i;
@@ -9,7 +13,11 @@ int _strlen(char *s)
 		i++;
 	return (i);
 }
-
+/**
+ * _prints_rot13 - print rot13
+ * @str: string
+ * Return: int
+ */
 int	_prints_rot13(char *str)
 {
 	int count;

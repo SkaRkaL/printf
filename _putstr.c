@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * _putstr - print string
+ * @str: string
+ * Return: int
+ */
 int _putstr(char *str)
 {
 	int count;

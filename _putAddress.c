@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * _putAddress - put address of @nbr
+ * @nbr: number
+ * Return: int
+ */
 int _putAddress(unsigned long long nbr)
 {
 	int i;

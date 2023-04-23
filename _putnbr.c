@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * _putnbr - print number
+ * @n: number
+ * Return: int
+ */
 int _putnbr(int n)
 {
 	int count, nbr;

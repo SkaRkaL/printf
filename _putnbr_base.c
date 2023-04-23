@@ -1,5 +1,10 @@
 #include "main.h"
-
+/**
+ * _putnbr_base - put number in base
+ * @nbr: number
+ * @base: base
+ * Return: int
+ */
 int _putnbr_base(unsigned long int nbr, char *base)
 {
 	unsigned long int len_base;

@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * _putnbr_u - print unsigned number
+ * @nbr: number
+ * Return: unsigned int
+ */
 int _putnbr_u(unsigned int nbr)
 {
 	int count;

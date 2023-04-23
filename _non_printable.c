@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * _char_is_printable - check if printable
+ * @c: chracter
+ * Return: 0 or 1
+ */
 int _char_is_printable(char c)
 {
 	if (c >= 32 && c <= 126)
@@ -7,7 +11,11 @@ int _char_is_printable(char c)
 	else
 		return (0);
 }
-
+/**
+ * _non_printable -  non printable
+ * @str: string
+ * Return: int
+ */
 int _non_printable(char *str)
 {
 	int	i;

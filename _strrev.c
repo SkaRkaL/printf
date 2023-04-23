@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * _strrev - reverse string
+ * @s: string
+ * Return: int
+ */
 int	_strrev(char *s)
 {
 	int	i;

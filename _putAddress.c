@@ -4,7 +4,7 @@
  * @nbr: number
  * Return: int
  */
-int _putAddress(unsigned long long nbr)
+int _putAddress(unsigned long int nbr)
 {
 	int i;
 

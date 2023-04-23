@@ -19,7 +19,7 @@ int _prints_rot13(char *s);
 int _strrev(char *s);
 int _putnbr_u(unsigned int nbr);
 int _putnbr_base(unsigned long int nbr, char *base);
-int _putAddress(unsigned long long nbr);
+int _putAddress(unsigned long int nbr);
 int _putnbr(int nbr);
 int _putstr(char *str);
 int _putchar(char c);

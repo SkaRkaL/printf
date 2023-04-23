@@ -55,35 +55,3 @@ int _printf(const char *format, ...)
 	va_end(list);
 	return (len);
 }
-
-//----------------------------------------------------//
-//                 MAIN   Done ✅
-//             Crazy test hhhhhh
-//----------------------------------------------------//
-
-int main()
-{
-    char s[6] = "souha";
-    char *sa = "saad";
-    char *add = "55";
-    char *msg = "This is the best printf daret f 3 days i guess hahahhaha";
-    int age = 20;
-    int tl = 183;
-    char m = 'M';
-    int x = 255;
-    unsigned int max = 4294967295;
-
-	_putnbr(INT_MIN);
-	puts("");
-	_putnbr(INT_MAX);
-	puts("");
-	puts("\n---------------------------------------------------------");
-	printf("{%o}", 41);
-	int our = _printf("Hello |%s|\nmy name is |%s|\nIm |%dyo|\nand -%c- |%icm|\ni live in %%%%%%\nwith Address |%p|\n& with this code |%x|\nand also |%X|\nu == |%u|\n\n%s\nrevers--> %r\nand ROT13 %R\nbin(98) == %b\nocta %o\n\n", s, sa, age, m, tl, add, x, x, max, msg, "aliahuos", "abc_nop", 98, 41 );
-	printf("\nFull LEN Diyalna  =============>> %d\n\n", our);
-	puts("---------------------------------------------------------\n");
-
-	                          // Soo All Good i guess hhhh ✔
-
-    return (0);
-}

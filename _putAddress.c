@@ -12,4 +12,5 @@ int _putAddress(unsigned long long nbr)
 	i = _putstr("0x");
 	i += _putnbr_base(nbr, B16L);
 	return (i);
+jnjkqncjqncjqnjnc
 }

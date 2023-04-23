@@ -2,8 +2,8 @@
 
 int _printf(const char *format, ...)
 {
-	int		len;
-	int		i;
+	int len;
+	int i;
 	va_list	list;
 
 	i = 0;
@@ -12,9 +12,9 @@ int _printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] == '%')
-        {
+		{
 			if (format[i + 1] == '\0')
-				break ;
+				break;
 			else if (format[i + 1] == 'c')
 				len += _putchar(va_arg(list, int));
 			else if (format[i + 1] == 's')
@@ -24,19 +24,17 @@ int _printf(const char *format, ...)
 			else if ((format[i + 1] == 'd') || (format[i + 1] == 'i'))
 				len += _putnbr(va_arg(list, int));
 			else if (format[i + 1] == 'u')
-				len += _putnbr_unsigned(va_arg(list, unsigned int));
-
-			else if (format[i + 1] == 'o')                 // for oct -> Task 3
+				len += _putnbr_u(va_arg(list, unsigned int));
+			else if (format[i + 1] == 'o')
 				len += _putnbr_base(va_arg(list, unsigned int), B8);
-			else if (format[i + 1] == 'b')                 // for binary --> Task 2
+			else if (format[i + 1] == 'b')
 				len += _putnbr_base(va_arg(list, unsigned int), B2);
-			else if (format[i + 1] == 'S')                 // for non_printable_character --> Task 5
+			else if (format[i + 1] == 'S')
 				len += _non_printable(va_arg(list, char *));
-			else if (format[i + 1] == 'R')                 // for rot13 --> Task 14
+			else if (format[i + 1] == 'R')
 				len += _prints_rot13(va_arg(list, char *));
-			else if (format[i + 1] == 'r')                 // for reverse String --> Task 13
+			else if (format[i + 1] == 'r')
 				len += _strrev(va_arg(list, char *));
-
 			else if (format[i + 1] == 'x')
 				len += _putnbr_base(va_arg(list, unsigned int), B16L);
 			else if (format[i + 1] == 'X')

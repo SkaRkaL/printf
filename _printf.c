@@ -43,7 +43,6 @@ int _printf(const char *format, ...)
 				len += _putchar('%');
 			else
 			{
-				len += _putchar(format[i]);
 				len += _putchar(format[i + 1]);
 			}
 			i++;

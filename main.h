@@ -28,6 +28,7 @@ int _non_printable(char *str);
 int _prints_rot13(char *str);
 int _strlen(char *s);
 int _strrev(char *s);
+int cheeck(va_list *list, char c);
 int _printf(const char *format, ...);
 
 #endif

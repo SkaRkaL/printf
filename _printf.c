@@ -1,5 +1,10 @@
 #include "main.h"
-
+/**
+ * cheeck - cheeck
+ * @list: list
+ * @c: character
+ * Return: int
+ */
 int cheeck(va_list *list, char c)
 {
 	int len;
@@ -10,7 +15,7 @@ int cheeck(va_list *list, char c)
 	else if (c == 's')
 		len += _putstr(va_arg(*list, char *));
 	else if (c == 'p')
-		len += _putAddress(va_arg(*list, unsigned long long));
+		len += _putAddress(va_arg(*list, unsigned long int));
 	else if ((c == 'd') || (c == 'i'))
 		len += _putnbr(va_arg(*list, int));
 	else if (c == 'u')
@@ -40,7 +45,11 @@ int cheeck(va_list *list, char c)
 	}
 	return (len);
 }
-
+/**
+ * _printf - printf
+ * @format: format
+ * Return: len
+ */
 int _printf(const char *format, ...)
 {
 	int len, i;
@@ -62,11 +71,4 @@ int _printf(const char *format, ...)
 			len += _putchar(format[i]);
 	}
 	return (va_end(list), len);
-}
-int main(void)
-{
-	int i = _printf("1234567890 %s\n", "True");
-	int j = printf("1234567890 %s\n", "True");
-
-	printf("\ni = %d\nj = %d\n", i, j);
 }

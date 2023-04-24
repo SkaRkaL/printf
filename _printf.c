@@ -40,7 +40,9 @@ int cheeck(va_list *list, char c)
 		len += _putchar(c);
 	else
 	{
-		len += _putchar('%');
+	/**
+	 * 	len += _putchar('%');
+	 */
 		len += _putchar(c);
 	}
 	return (len);
@@ -52,7 +54,7 @@ int cheeck(va_list *list, char c)
  */
 int _printf(const char *format, ...)
 {
-	int len, i;
+	int len, i, n;
 	va_list	list;
 
 	i = -1;
@@ -68,6 +70,43 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				break;
+			if (format[i + 1] == '+')
+			{
+				i++;
+				while (format[i + 1] == '+')
+						i++;
+				if ((format[i + 1] == 'd') || (format[i + 1] == 'i'))
+				{
+					n = va_arg(list, int);
+					if (n < 0)
+						len += _putnbr(n);
+					else
+					{
+						len += _putchar('+');
+						len += _putnbr(n);
+					}
+					i += 1;
+				}
+			}
+			else
+			if (format[i + 1] == ' ')
+			{
+				i++;
+				while (format[i + 1] == ' ')
+					i++;
+				if ((format[i + 1] == 'd') || (format[i + 1] == 'i'))
+				{
+					n = va_arg(list, int);
+					if (n < 0)
+						len += _putnbr(n);
+					else
+					{
+						len += _putchar(' ');
+						len += _putnbr(n);
+					}
+					i += 1;
+				}
+			}
 			len += cheeck(&list, format[i + 1]);
 			i++;
 		}

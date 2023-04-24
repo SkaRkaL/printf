@@ -8,6 +8,8 @@ int _putAddress(unsigned long int nbr)
 {
 	int i;
 
+	if (!nbr)
+		return (_putstr("(nil)"));
 	i = 0;
 	i = _putstr("0x");
 	i += _putnbr_base(nbr, B16L);

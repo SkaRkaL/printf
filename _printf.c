@@ -60,7 +60,9 @@ int _handle_flags(va_list *list, char *format, int *i)
 
 	if (format[*i + 1] == '+' || format[*i + 1] == ' ' || format[*i + 1] == '#')
 	{
-		while (format[*i + 1] == '+' || format[*i + 1] == '#' || format[*i + 1] == ' ')
+		while (format[*i + 1] == '+' ||
+				format[*i + 1] == '#' ||
+				format[*i + 1] == ' ')
 		{
 			if (format[*i + 1] == '+')
 				p = format[*i + 1];

@@ -95,7 +95,10 @@ int _handle_flags(va_list *list, char *format, int *i)
 
 int _printf(const char *format, ...)
 {
-	int len, i, n;
+	int len, i;
+	/**
+	 * n
+	 */
 	va_list	list;
 
 	i = -1;

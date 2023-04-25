@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * cheeck - cheeck
- * @list: list
- * @c: character
- * Return: int
- */
+* cheeck - cheeck
+* @list: list
+* @c: character
+* Return: int
+*/
 int cheeck(va_list *list, char c)
 {
 	int len;
@@ -40,18 +40,17 @@ int cheeck(va_list *list, char c)
 		len += _putchar(c);
 	else
 	{
-	/**
-	 * 	len += _putchar('%');
-	 */
 		len += _putchar(c);
 	}
 	return (len);
 }
 /**
- * _printf - printf
- * @format: format
- * Return: len
- */
+* _printf - printf
+* @list: list
+* @format: format
+* @i: index
+* Return: len
+*/
 
 int _handle_flags(va_list *list, char *format, int *i)
 {
@@ -73,12 +72,12 @@ int _handle_flags(va_list *list, char *format, int *i)
 			n = va_arg(*list, int);
 			if (n < 0)
 				len += _putnbr(n);
-			else if(p == '+')
+			else if (p == '+')
 			{
 				len += _putchar('+');
 				len += _putnbr(n);
 			}
-			else if(s == ' ')
+			else if (s == ' ')
 			{
 				len += _putchar(' ');
 				len += _putnbr(n);
@@ -96,9 +95,6 @@ int _handle_flags(va_list *list, char *format, int *i)
 int _printf(const char *format, ...)
 {
 	int len, i;
-	/**
-	 * n
-	 */
 	va_list	list;
 
 	i = -1;
@@ -123,11 +119,3 @@ int _printf(const char *format, ...)
 	}
 	return (va_end(list), len);
 }
-/**
- * int main()
- * {
- *	_printf("|%     +  #   +  d|\n", -15);
- *	_printf("|%     +  #   +  d|\n", 68415);
- *	_printf("|%     +  #   +  d|\n", 635);
- * }
- */

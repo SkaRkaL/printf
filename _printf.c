@@ -40,6 +40,7 @@ int cheeck(va_list *list, char c)
 		len += _putchar(c);
 	else
 	{
+		len += _putchar('%');
 		len += _putchar(c);
 	}
 	return (len);

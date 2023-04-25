@@ -46,7 +46,7 @@ int cheeck(va_list *list, char c)
 	return (len);
 }
 /**
-* _printf - printf
+* _handle_flags - handle_flags
 * @list: list
 * @format: format
 * @i: index
@@ -92,6 +92,11 @@ int _handle_flags(va_list *list, char *format, int *i)
 	}
 	return (len);
 }
+/**
+* _printf - printf
+* @format: format
+* Return: len
+*/
 
 int _printf(const char *format, ...)
 {

@@ -56,8 +56,9 @@ int cheeck(va_list *list, char c)
 int _handle_flags(va_list *list, char *format, int *i)
 {
 	char  p = 0, s = 0;
-	int n = 0, len = 0;
+	int n = 0, len;
 
+	len = 0;
 	if (format[*i + 1] == '+' || format[*i + 1] == ' ' || format[*i + 1] == '#')
 	{
 		while (format[*i + 1] == '+' ||

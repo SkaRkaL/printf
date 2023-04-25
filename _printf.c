@@ -52,6 +52,47 @@ int cheeck(va_list *list, char c)
  * @format: format
  * Return: len
  */
+
+int _handle_flags(va_list *list, char *format, int *i)
+{
+	char  p = 0, s = 0;
+	int n = 0, len = 0;
+
+	if (format[*i + 1] == '+' || format[*i + 1] == ' ' || format[*i + 1] == '#')
+	{
+		while (format[*i + 1] == '+' || format[*i + 1] == '#' || format[*i + 1] == ' ')
+		{
+			if (format[*i + 1] == '+')
+				p = format[*i + 1];
+			else if (format[*i + 1] == ' ')
+				s = format[*i + 1];
+			(*i)++;
+		}
+		if ((format[*i + 1] == 'd') || (format[*i + 1] == 'i'))
+		{
+			n = va_arg(*list, int);
+			if (n < 0)
+				len += _putnbr(n);
+			else if(p == '+')
+			{
+				len += _putchar('+');
+				len += _putnbr(n);
+			}
+			else if(s == ' ')
+			{
+				len += _putchar(' ');
+				len += _putnbr(n);
+			}
+			else
+				len += _putnbr(n);
+			(*i)++;
+			s = 0;
+			p = 0;
+		}
+	}
+	return (len);
+}
+
 int _printf(const char *format, ...)
 {
 	int len, i, n;
@@ -70,43 +111,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				break;
-			if (format[i + 1] == '+')
-			{
-				i++;
-				while (format[i + 1] == '+')
-						i++;
-				if ((format[i + 1] == 'd') || (format[i + 1] == 'i'))
-				{
-					n = va_arg(list, int);
-					if (n < 0)
-						len += _putnbr(n);
-					else
-					{
-						len += _putchar('+');
-						len += _putnbr(n);
-					}
-					i += 1;
-				}
-			}
-			else
-			if (format[i + 1] == ' ')
-			{
-				i++;
-				while (format[i + 1] == ' ')
-					i++;
-				if ((format[i + 1] == 'd') || (format[i + 1] == 'i'))
-				{
-					n = va_arg(list, int);
-					if (n < 0)
-						len += _putnbr(n);
-					else
-					{
-						len += _putchar(' ');
-						len += _putnbr(n);
-					}
-					i += 1;
-				}
-			}
+			len += _handle_flags(&list, (char *)format, &i);
 			len += cheeck(&list, format[i + 1]);
 			i++;
 		}
@@ -115,3 +120,11 @@ int _printf(const char *format, ...)
 	}
 	return (va_end(list), len);
 }
+/**
+ * int main()
+ * {
+ *	_printf("|%     +  #   +  d|\n", -15);
+ *	_printf("|%     +  #   +  d|\n", 68415);
+ *	_printf("|%     +  #   +  d|\n", 635);
+ * }
+ */
